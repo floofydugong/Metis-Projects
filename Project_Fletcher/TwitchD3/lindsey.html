@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 15px Helvetica;
+  background-color: #F3F3F3; /*Not twitch grey...but close enough*/
+}
+
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.chatChart {
+  position: absolute;
+  bottom: 10px;
+}
+
+.explain {
+  position: absolute;
+  width: 70%;
+  margin-top: 20px;
+}
+
+</style>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js""></script>
+
+<div style="width: 75%; position: relative; height: 378px;">
+  <div style="float: left; margin-left: 760px">
+      <table>
+        <h3><center>Broadcast Highlights</center></h3>
+        <tr>
+          <td><a href='index.html'><img src="welcome.png"; width=180px; height=100px;></a></td>
+          <td><a href='gaben.html'><img src="gabe.png"; width=180px; height=100px;></a></td>
+        </tr>
+        <tr>
+          <td><a href='lindsey.html'><img src="lindsey.png"; width=180px; height=100px;></a></td>
+          <td><a href='ppd.html'><img src="ppd.png"; width=180px; height=100px;></a></td>
+        </tr>
+        <tr>
+          <td><a href='silencer.html'><img src="silencer.png"; width=180px; height=100px;></a></td>
+          <td><a href='index.html'><img src="end.png"; width=180px; height=100px;></a></td>
+        </tr>
+      </table>
+  </div>
+  <iframe
+      src="https://player.twitch.tv/?video=v82681239&autoplay=true&time=05m00s"
+      height="378"
+      width="620"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen="true"
+      style="position: absolute; top: 0; left: 0">
+  </iframe>
+</div>
+
+<div class="explain">
+  <p></p>
+  <h3>Project Summary:</h3>
+  <p color='red'>I scraped twitch chat data from past recordings of streams related to Dota 2. I then built a model that identifies key events and modeled topics around these events using tf-idf and latent semantic analysis. I then generated links that would enable users to quickly scrub through the video. If the future, I hope to make this real-time and would via flask.</p>
+</div>
+
+<a href="https://www.twitch.tv/dota2ti?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;"></a>
+<iframe src="https://www.twitch.tv/dota2ti/chat?popout="
+    frameborder="0"
+    scrolling="no"
+    style="position: absolute; top: 0; right: 0; height: 100%; width: 25%"></iframe>
+<script>
+
+var margin = {top: 10, right: 50, bottom: 30, left: 50},
+    // width = 1030 - margin.left - margin.right,
+    width = (document.body.clientWidth) * .75 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format("%H:%M:%S").parse;
+// var parseDate = d3.time.format("%Y-%m-%d").parse;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+// var color = d3.scale.category10();
+
+var color = d3.scale.ordinal()
+  .range(["#6441A5", "#262626" , "#0000FF"]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .ticks(18)
+    .innerTickSize(15)
+    .outerTickSize(0)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .tickFormat(function(d) { return d;})
+    .ticks(5)
+    .innerTickSize(15)
+    .outerTickSize(0)
+    .orient("left");
+
+var line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.price); });
+
+
+var svg = d3.select("body").append("svg")
+    .attr("class", "chatChart")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("air_bus_data_LEGO.tsv", function(error, data) {
+  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+  });
+
+  var companies = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d.date, price: +d[name]};
+      })
+    };
+  });
+
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+
+  y.domain([
+    d3.min(companies, function(c) { return d3.min(c.values, function(v) { return v.price; }); }),
+    d3.max(companies, function(c) { return d3.max(c.values, function(v) { return v.price; }); })
+  ]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+
+
+  svg.append("line")
+        .attr(
+        {
+            "class":"horizontalGrid",
+            "x1" : 0,
+            "x2" : width,
+            "y1" : y(0),
+            "y2" : y(0),
+            "fill" : "none",
+            "shape-rendering" : "crispEdges",
+            "stroke" : "black",
+            "stroke-width" : "1px",
+            "stroke-dasharray": ("3, 3")
+        });
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+      .enter().append("g")
+      .classed("legend", true)
+      .attr("transform", function(d, i) {
+          return "translate(0," + i * 20 + ")";
+      });
+  legend.append("rect")
+      .attr("x", width - 90)
+      .attr("width", 12)
+      .attr("height", 12)
+      .style("fill", color);
+  legend.append("text")
+      .attr("x", width - 70)
+      .attr("dy", ".65em")
+      .text(function(d) {
+          return d;
+      });
+
+  var company = svg.selectAll(".company")
+      .data(companies)
+    .enter().append("g")
+      .attr("class", "company");
+
+  var path = svg.selectAll(".company").append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+      .style("stroke", function(d) { if (d.name == "Comment_Count")
+                                        {return "rgb(100,65,165)"} //This is twitch color Purple
+                                      else {return "rgb(38, 38, 38)";} //This is twitch Dark Gray
+                                         });
+
+var totalLength = [path[0][0].getTotalLength(), path[0][1].getTotalLength()];
+
+   d3.select(path[0][0])
+      .attr("stroke-dasharray", totalLength[0] + " " + totalLength[0] )
+      .attr("stroke-dashoffset", totalLength[0])
+      .transition()
+        .delay(2500)
+        .duration(10000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
+
+   d3.select(path[0][1])
+      .attr("stroke-dasharray", totalLength[1] + " " + totalLength[1] )
+      .attr("stroke-dashoffset", totalLength[1])
+      .transition()
+        .delay(2500)
+        .duration(10000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
+
+});
+
+</script>

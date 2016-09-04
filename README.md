@@ -1,3 +1,3 @@
 # Metis_Projects
 
-Projets from Metis
+Projects from Metis

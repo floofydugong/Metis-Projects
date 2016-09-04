@@ -1,4 +1,5 @@
 **Project:** Fletcher
+
 **Description:** Determined DOTA 2 highlights using TF-IDF and Latent Semantic Analysis on Twitch chat logs. Monitored chat traffic patterns using a D3 dashboard.
 
 # Problem Statement

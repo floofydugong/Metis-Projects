@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/shopping-3-3/97/127-128.png">
+    <title>Omnilux</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS-->
+<!--     <link href="static/css/styles.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="static/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mine.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="static/css/lightbox.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tinos" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="blue-grey lighten-4" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><span style="color:white; font-size:40px;">Omni<span><span style="color:#ffff00;">lux</span></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="https://floofydugong.github.io/">Blog</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="https://floofydugong.github.io/">Blog</a></li>
+            </ul>
+            <a href="http://localhost:9000/index.html" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+
+    </nav>
+
+    <div class="section no-pad-bot" id="index-banner">
+
+    </div>
+
+    <a href="https://github.com/floofydugong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+
+    <div class="container">
+
+      {% block body %}{% endblock body %}
+
+    </div>
+
+    <footer class="page-footer blue-grey lighten-4">
+      <div class="container">
+
+        <div style="background-color: #fafafa; padding: 5px; border-radius:10px;">
+          <h6 class="header col s12 light" style='text-align: left'><span style="font-family:'Tinos', serif"><b>Omnilux</b> /ˌämˈniˈləks/ <i>n.</i> : Translated as <b>"Light everywhere"</b>, Omnilux is a web application built to assist law enforcement in identifying deceitful advertising in online classified ads.</span></h6>
+        </div>
+        <br/>
+
+        <div class="row">
+          <div class="col l6 s1">
+            <h5 class="white-text">About Me</h5>
+            <p class="grey-text text-lighten-4">I am currently attending Metis, a 3 month long data science bootcamp located in San Francisco. Omnilux was built as a final capstone project with the hopes that it will be used to combat human trafficking.</p>
+
+          </div>
+          <div class="col l3 s12">
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+            <ul>
+              <li><a class="white-text" href="https://www.linkedin.com/in/linkwithjohn">LinkedIn</a></li>
+              <li><a class="white-text" href="https://facebook.com/floofydugong"> Facebook</a></li>
+              <li><a class="white-text" href="mailto:email.john.huynh@gmail.com"> Email</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Themed with <a class="yellow-text text-lighten-1" href="http://materializecss.com">Materialize</a>
+        </div>
+      </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <script type="text/javascript" src="static/js/slick.min.js"></script>
+    <script src="static/js/materialize.js"></script>
+    <script src="static/js/init.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/circle-progress.js"></script>
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.carousel').carousel();
+      });
+
+      var percentData = $('#my-data').data('other');
+
+      $('#circle').circleProgress({
+        value: percentData,
+        size: 100,
+        fill: {
+          gradient: ["#ef5350", "#ef5350"]
+        }
+      });
+
+      $(document).on('ready', function() {
+        $(".regular").slick({
+          dots: true,
+          infinite: true,
+          slidesToShow: 4,
+          slidesToScroll: 4
+        });
+        $(".center").slick({
+          dots: true,
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 4,
+          slidesToScroll: 4
+        });
+      });
+
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+
+    </script>
+
+</body>
+
+</html>

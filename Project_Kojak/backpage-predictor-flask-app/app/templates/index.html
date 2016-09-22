@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="section no-pad-bot" id="index-banner">
+        <br>
+    <div>
+      <h5 class="header col s12 light" style='text-align: left'><span style="font-family:'Roboto'"><b>Getting Started :</b> Insert a URL from Backpage.com. The application will return a prediction as to whether or not the ad is truthful or deceitful. Hover over <span class='token positive_token_1'>highlighted</span> words to view their <span class="token positive_token_1" style="background-color:#424242; color:#fafafa">Deceit Rank</span>.</span></h5>
+    </div>
+
+  </div>
+
+
+    <form method="POST" >
+
+      {{ form.csrf_token }}
+
+      <div class="row">
+         <div class="input-field col s12" ><input name="backpage_url" type="text" id="bpurl" placeholder="Backpage URL"/>
+         </div>
+      </div>
+
+      <button class="btn waves-effect blue-grey lighten-3"" type="submit" name="action"">Submit
+      </button>
+
+    </form>
+
+
+      {% if (prediction != 'Failed' and prediction != '') %}
+
+        <div class="row" style="border: 1px solid #ffffff; padding: 10px; background-color: #f5f5f5; border-radius:10px; margin: 20px 0px 0px 0px;">
+            <div class="four columns" style="border: 1px solid #ffffff; padding: 10px; background-color: #eceff1; border-radius:10px;">
+
+                <div><center>
+                  <center><h5><b>{{ prediction[7] | safe }} : {{ prediction[8] | safe }}</b></h5></center>
+                </div>
+                <center><div id="circle"></div></center><br/>
+
+                <b>Poster's Age : </b>{{ prediction[4] }} <br/>
+                <b>Location : </b> {{ prediction[5] }} <br/>
+                <b>Link : </b> <a href = '{{ prediction[0] }}'> {{ prediction[1] }} </a><br/>
+                <b>Posted Date : </b> {{ prediction[2] }} <br/>
+
+                <meta id="test" data-name="{{prediction[8]}}" data-other="{{prediction[8]}}">
+                <meta id="my-data" data-name="{{ prediction[9]}}" data-other="{{ prediction[9]}}">
+            </div>
+            <div class="eight columns" style="padding: 0px 25px 0px 0px;">
+              <span class="token" style="border: 0px solid gray;"> {{ colored_text | safe }}
+              </span>
+            </div>
+
+        </div>
+
+        <div style="padding: 35px; border-radius:10px; margin: 15px 0px 10px 0px;">
+          {{ carousel_code | safe}}
+        </div>
+
+      {% elif prediction == '' %}
+        <h6 class="header col s12 light"></h6>
+      {% else %}
+        <b>Please Enter in a Valid URL</b>
+      {% endif %}
+
+
+  {% block js %}
+
+  {% endblock js %}
+
+{% endblock body %}
+

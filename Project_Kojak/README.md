@@ -12,7 +12,7 @@ Performed Naive Bayes Classification on escort ads from Backpage.com to determin
 
 **Conclusion:** The model was able to predict with 81% accuracy. Althougn this is a great milestone, the data that I scraped and labeled inherently had bias. For future work, I would like to consult law enforcement agencies and NGO's to develop a truth set.
 
-![](header.png)
+![Ominlux Screenshot](/images/OmniluxScreenshot.png)
 
 ## Application Demo
 

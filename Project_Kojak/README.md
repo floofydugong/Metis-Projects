@@ -1,12 +1,26 @@
-**Project:** Kojak
+============
+Kojak
+============
 
-**Problem Statement:** Classified ads from Backpage.com using Naive Bayes to determine potential human trafficking victims. Built a flask app to display truthfulness/deceitfulness of ads, incorporating javascript and CSS elements.
+> Identifying Potential Trafficking Victims in Classified Ads
 
-**Data Source:** 320 Hand labeled Backpage.com escort ads in San Francisco.
+Performed Naive Bayes Classification on escort ads from Backpage.com to determine potential human trafficking victims, displaying the results using a Flask application.
 
-**Your Model:** I used a Multinomial Naive Bayes model in with the output of a Count Vectorizer as the input to predict whether or not the ad was fradulent.
+**Data Source:** 320 hand labeled Backpage.com escort ads
 
-**Conclusion:** The model was able to predict with 80% accuracy. Althougn this is a great milestone, the data that I scraped and labeled inherently had bias. For future work, I would like to consult law enforcement agencies and NGO's to develop a truth set.
+**Model:** I used a Multinomial Naive Bayes model in with the output of a Count Vectorizer as the input to predict whether or not the ad was fradulent.
 
-**Github URL:** https://github.com/floofydugong/Metis_Projects/tree/master/Project_Kojak
+**Conclusion:** The model was able to predict with 81% accuracy. Althougn this is a great milestone, the data that I scraped and labeled inherently had bias. For future work, I would like to consult law enforcement agencies and NGO's to develop a truth set.
 
+![](header.png)
+
+## Application Demo
+
+Link to Screencast and Career Day Presentation
+
+## Release History
+
+* 0.1.0
+    * The first proper release for Metis' Career Day Presentation
+* 0.0.1
+    * Work in progress

@@ -4,7 +4,7 @@ Kojak
 
 > Identifying Potential Trafficking Victims in Classified Ads
 
-[![Build Status]][buildstatus-url]]()
+![Ominlux Build Status](buildstatus-url)
 
 Performed Naive Bayes Classification on escort ads from Backpage.com to determine potential human trafficking victims, displaying the results using a Flask application.
 
@@ -27,4 +27,4 @@ Link to Screencast and Career Day Presentation
 * 0.0.1
     * Work in progress
 
-[buildstatus-url] : https://img.shields.io/badge/build-passing-brightgreen.svg
+[buildstatus-url]: https://img.shields.io/badge/build-passing-brightgreen.svg

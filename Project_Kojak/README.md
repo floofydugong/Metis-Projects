@@ -1,5 +1,5 @@
 ============
-Kojak
+Codename : Kojak
 ============
 
 > Identifying Potential Trafficking Victims in Classified Ads
@@ -23,7 +23,7 @@ Link to Screencast and Career Day Presentation
 ## Release History
 
 * 0.1.0
-    * The first proper release for Metis' Career Day Presentation
+    * The first release for Metis' Career Day Presentation
 * 0.0.1
     * Work in progress
 

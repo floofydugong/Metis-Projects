@@ -18,7 +18,7 @@ Performed Naive Bayes Classification on escort ads from Backpage.com to determin
 
 ## Final Project Presentation
 
-Thank you to all those in attendance of Metis' Career Day. Click on the image below to watch my final presentation.
+Thank you to all those in attendance of Metis' Career Day. Click on the image below to watch my final project presentation.
 
 [![Presentation Link](https://pbs.twimg.com/media/CtAJ13_VMAALFCp.jpg:large)](http://www.youtube.com/watch?v=U72M6iIPerg)
 

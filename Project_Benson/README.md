@@ -1,28 +1,36 @@
-**Project:** Benson
+============
+Codename : Benson
+============
 
-**Description:** Optimizing Routes for a fictional shuttle service
+> Identifying Optimizing Routes for a fictional shuttle service
 
-# Problem Statement
+![Benson Build Status][buildstatus-url]
 
-Dear Ms. Startup,
+Performed Naive Bayes Classification on escort ads from Backpage.com to determine potential human trafficking victims, displaying the results using a Flask application.
 
-   We are certainly interested in your startup idea and are glad that we had an opportunity to chat with you in regards to some preliminary solutions. It is true that there is no easy way to get from Queens to Brooklyn, which is a set up for a great investment opportunity. To take your recently acquired buses and shuttles to create new routes in the city is an effective use of resources. To give you a sense of what we can provide, we will go ahead and send you a short analysis of New York City's traffic flow using MTA turnstile data.
+**Data Source:** [MTA Turnstile Data](wwww.google.com)
 
-   What is interesting is that the creation of new routes from Queens to Brooklyn can directly change the traffic flow that we notice on a day to day basis. With this in mind, we can also build analytics that monitor the traffic patterns and fine tune the routes that the shuttles take.
+**Model:** Linear Regression
 
-   Thank you for reaching out. We will be in touch.
+**Conclusion:** TBD
 
-Best,
+![Benson Screenshot](/Project_Kojak/images/OminluxBlurredScreenshot.png)
 
-Metis Consulting, Inc.
-
----
-
-# Team Members
-
+**Team Members **
 * Derek Updegraff (@wdupdegraff)
 * John Huynh (@floofydugong)
 * Mark Shin (@dohyun0012)
 * Saniya Jesupaul (@sjesupaul)
 
----
+## Final Project Presentation
+
+TBD
+
+## Release History
+
+* 0.1.0
+    * The first release presentation on 7/8/16
+* 0.0.1
+    * Work in progress
+
+[buildstatus-url]: https://img.shields.io/badge/build-updating-yellow.svg

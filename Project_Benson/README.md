@@ -14,7 +14,6 @@ Performed Naive Bayes Classification on escort ads from Backpage.com to determin
 
 **Conclusion:** TBD
 
-![Benson Screenshot](/Project_Kojak/images/OminluxBlurredScreenshot.png)
 
 **Team Members **
 * Derek Updegraff (@wdupdegraff)

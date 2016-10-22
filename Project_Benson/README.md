@@ -15,7 +15,7 @@ Performed Naive Bayes Classification on escort ads from Backpage.com to determin
 **Conclusion:** TBD
 
 
-**Team Members **
+**Team Members**
 * Derek Updegraff (@wdupdegraff)
 * John Huynh (@floofydugong)
 * Mark Shin (@dohyun0012)

@@ -6,7 +6,7 @@ Codename : Benson
 
 ![Benson Build Status][buildstatus-url]
 
-Performed Naive Bayes Classification on escort ads from Backpage.com to determine potential human trafficking victims, displaying the results using a Flask application.
+Explored New York's Subway Turnstile data to analyze commuter patterns and schedules.
 
 **Data Source:** [MTA Turnstile Data](wwww.google.com)
 
@@ -21,7 +21,7 @@ Performed Naive Bayes Classification on escort ads from Backpage.com to determin
 * Mark Shin (@dohyun0012)
 * Saniya Jesupaul (@sjesupaul)
 
-## Final Project Presentation
+## Project Presentation
 
 TBD
 

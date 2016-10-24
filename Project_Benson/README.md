@@ -6,7 +6,7 @@ Codename : Benson
 
 ![Benson Build Status][buildstatus-url]
 
-Explored New York's Subway Turnstile data to analyze commuter patterns and schedules.
+My team and I used exploratory data analysis techniques to analyze New York's MTA turnstile data to determine commuter patterns and schedules. We leveraged this knowledge to build out a ride scheduler for Qubra, a fictional startup we created that provides a shuttle service directly between Queens and Brooklyn.
 
 **Data Source:** [MTA Turnstile Data](wwww.google.com)
 

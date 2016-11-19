@@ -2,7 +2,7 @@
 Codename : Benson
 ============
 
-> Identifying Optimizing Routes for a fictional shuttle service
+> Identifying and Optimizing Routes for a fictional shuttle service
 
 ![Benson Build Status][buildstatus-url]
 

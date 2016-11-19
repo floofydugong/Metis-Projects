@@ -14,7 +14,6 @@ My team and I used exploratory data analysis techniques to analyze New York's MT
 
 **Conclusion:** TBD
 
-
 **Team Members**
 * Derek Updegraff (@wdupdegraff)
 * John Huynh (@floofydugong)
@@ -24,6 +23,10 @@ My team and I used exploratory data analysis techniques to analyze New York's MT
 ## Project Presentation
 
 TBD
+
+## To-Do List
+* Make sure links are functional
+* Update README.md with instructions
 
 ## Release History
 

@@ -27,6 +27,7 @@ TBD
 ## To-Do List
 * Make sure links are functional
 * Update README.md with instructions
+* Update Links to Team Members
 
 ## Release History
 
